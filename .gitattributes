@@ -1,0 +1,4 @@
+﻿frames-webp/*.webp filter=lfs diff=lfs merge=lfs -text
+frames-mobile/*.webp filter=lfs diff=lfs merge=lfs -text
+frames-webp/*.webp !text !filter !merge !diff
+frames-mobile/*.webp !text !filter !merge !diff

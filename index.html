@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>ЧистоПро — Химчистка мебели, мойка ковров, клининг КМВ</title>
+<meta name="description" content="Профессиональная химчистка мягкой мебели, мойка ковров, ламинация мебели и генеральный клининг. Выезд по КМВ. Результат виден сразу.">
+<link rel="icon" href="assets/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- CANVAS BACKGROUND -->
+<canvas id="gl-canvas"></canvas>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-inner">
+    <div class="loader-logo">Чисто<span>Про</span></div>
+    <div class="loader-bar-wrap"><div class="loader-bar" id="loader-bar"></div></div>
+    <div class="loader-pct" id="loader-pct">0%</div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <div class="logo">Чисто<span>Про</span></div>
+    <ul class="nav-links">
+      <li><a href="#" data-scroll="1">Услуги</a></li>
+      <li><a href="#" data-scroll="2">До/После</a></li>
+      <li><a href="#" data-scroll="3">Цены</a></li>
+      <li><a href="#" data-scroll="4">Отзывы</a></li>
+      <li><a href="#" data-scroll="5">Контакты</a></li>
+    </ul>
+    <a href="#" class="nav-cta" data-scroll="5">Заказать</a>
+    <button class="burger" id="burger" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE DRAWER -->
+<div class="nav-scrim" id="nav-scrim" hidden></div>
+<div class="nav-drawer" id="nav-drawer" hidden>
+  <ul>
+    <li><a href="#" data-scroll="1" class="drawer-link">Услуги</a></li>
+    <li><a href="#" data-scroll="2" class="drawer-link">До/После</a></li>
+    <li><a href="#" data-scroll="3" class="drawer-link">Цены</a></li>
+    <li><a href="#" data-scroll="4" class="drawer-link">Отзывы</a></li>
+    <li><a href="#" data-scroll="5" class="drawer-link">Контакты</a></li>
+  </ul>
+</div>
+
+<!-- UI LAYER -->
+<div id="ui-layer">
+  <div class="stage">
+
+    <!-- SECTION 0: HERO -->
+    <section class="page" data-index="0">
+      <div class="page-inner hero-inner">
+        <div class="reveal-3d">
+          <div class="badge">⭐ Рейтинг 4.9 · 800+ клиентов</div>
+        </div>
+        <h1 class="reveal-3d">Ваша мебель<br><span class="gradient-text">как новая</span></h1>
+        <p class="hero-sub reveal-3d">Химчистка · Мойка ковров · Ламинация · Клининг<br>Результат виден сразу. Гарантия 48 часов.</p>
+        <div class="hero-btns reveal-3d">
+          <a href="#" class="btn-primary" data-scroll="5">Вызвать мастера</a>
+          <a href="#" class="btn-outline" data-scroll="1">Наши услуги</a>
+        </div>
+        <div class="hero-stats reveal-3d">
+          <div class="stat"><span class="stat-n">800+</span><span class="stat-l">клиентов</span></div>
+          <div class="stat-sep"></div>
+          <div class="stat"><span class="stat-n">5 лет</span><span class="stat-l">на рынке</span></div>
+          <div class="stat-sep"></div>
+          <div class="stat"><span class="stat-n">48ч</span><span class="stat-l">гарантия</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 1: SERVICES -->
+    <section class="page" data-index="1">
+      <div class="page-inner">
+        <div class="section-label reveal-3d">Наши услуги</div>
+        <h2 class="section-title reveal-3d">Профессиональный<br><span class="gradient-text">уход за вашим домом</span></h2>
+        <div class="services-grid reveal-3d">
+          <div class="service-card">
+            <div class="svc-icon">🛡️</div>
+            <h3>Ламинация мебели</h3>
+            <p>Защитная плёнка от царапин, влаги и пятен. Срок защиты до 5 лет.</p>
+            <div class="svc-price">от 800 ₽/м²</div>
+          </div>
+          <div class="service-card featured-svc">
+            <div class="svc-badge">Хит</div>
+            <div class="svc-icon">🛋️</div>
+            <h3>Химчистка мебели</h3>
+            <p>Глубокая экстракционная чистка диванов, кресел, матрасов. Любые пятна.</p>
+            <div class="svc-price">от 1 500 ₽</div>
+          </div>
+          <div class="service-card">
+            <div class="svc-icon">🪞</div>
+            <h3>Мойка ковров</h3>
+            <p>Профессиональная мойка в цехе. Забор, сушка и доставка включены.</p>
+            <div class="svc-price">от 200 ₽/м²</div>
+          </div>
+          <div class="service-card">
+            <div class="svc-icon">✨</div>
+            <h3>Клининг</h3>
+            <p>Генеральная уборка квартир, домов, офисов. После ремонта и перед заселением.</p>
+            <div class="svc-price">от 3 000 ₽</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: BEFORE/AFTER -->
+    <section class="page" data-index="2">
+      <div class="page-inner">
+        <div class="section-label reveal-3d">Результаты работы</div>
+        <h2 class="section-title reveal-3d">До и <span class="gradient-text">После</span></h2>
+        <div class="ba-grid reveal-3d">
+          <div class="ba-card">
+            <div class="ba-halves">
+              <div class="ba-half ba-before"><span>До</span></div>
+              <div class="ba-half ba-after"><span>После</span></div>
+            </div>
+            <p>Диван — химчистка</p>
+          </div>
+          <div class="ba-card">
+            <div class="ba-halves">
+              <div class="ba-half ba-before carpet"><span>До</span></div>
+              <div class="ba-half ba-after carpet-a"><span>После</span></div>
+            </div>
+            <p>Ковёр — мойка</p>
+          </div>
+          <div class="ba-card">
+            <div class="ba-halves">
+              <div class="ba-half ba-before table"><span>До</span></div>
+              <div class="ba-half ba-after table-a"><span>После</span></div>
+            </div>
+            <p>Стол — ламинация</p>
+          </div>
+        </div>
+        <div class="process-row reveal-3d">
+          <div class="proc-step"><div class="proc-n">01</div><h4>Заявка</h4><p>Звонок или WhatsApp — ответим за 15 мин</p></div>
+          <div class="proc-arr">→</div>
+          <div class="proc-step"><div class="proc-n">02</div><h4>Мастер</h4><p>Выезд в день обращения с оборудованием</p></div>
+          <div class="proc-arr">→</div>
+          <div class="proc-step"><div class="proc-n">03</div><h4>Результат</h4><p>Оплата после работы. Гарантия 48 часов</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: PRICING -->
+    <section class="page" data-index="3">
+      <div class="page-inner">
+        <div class="section-label reveal-3d">Прозрачные цены</div>
+        <h2 class="section-title reveal-3d">Прайс-<span class="gradient-text">лист</span></h2>
+        <div class="pricing-grid reveal-3d">
+          <div class="price-card">
+            <h3>Химчистка мебели</h3>
+            <table class="ptable">
+              <tr><td>Кресло</td><td>от 900 ₽</td></tr>
+              <tr><td>Диван 2-местный</td><td>от 1 500 ₽</td></tr>
+              <tr><td>Диван 3-местный</td><td>от 2 200 ₽</td></tr>
+              <tr><td>Матрас</td><td>от 1 200 ₽</td></tr>
+              <tr><td>Стул</td><td>от 400 ₽</td></tr>
+            </table>
+          </div>
+          <div class="price-card featured-price">
+            <div class="price-badge">Популярное</div>
+            <h3>Мойка ковров</h3>
+            <table class="ptable">
+              <tr><td>до 3 м²</td><td>от 600 ₽</td></tr>
+              <tr><td>3–6 м²</td><td>от 200 ₽/м²</td></tr>
+              <tr><td>6–12 м²</td><td>от 180 ₽/м²</td></tr>
+              <tr><td>от 12 м²</td><td>от 150 ₽/м²</td></tr>
+              <tr><td>Забор и доставка</td><td>Бесплатно</td></tr>
+            </table>
+          </div>
+          <div class="price-card">
+            <h3>Ламинация / Клининг</h3>
+            <table class="ptable">
+              <tr><td>Ламинация (м²)</td><td>от 800 ₽</td></tr>
+              <tr><td>Студия / 1-комн</td><td>от 3 000 ₽</td></tr>
+              <tr><td>2-комнатная</td><td>от 4 500 ₽</td></tr>
+              <tr><td>3-комнатная</td><td>от 6 000 ₽</td></tr>
+              <tr><td>После ремонта</td><td>от 8 000 ₽</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: REVIEWS -->
+    <section class="page" data-index="4">
+      <div class="page-inner">
+        <div class="section-label reveal-3d">Отзывы клиентов</div>
+        <h2 class="section-title reveal-3d">Нам <span class="gradient-text">доверяют</span></h2>
+        <div class="reviews-grid reveal-3d">
+          <div class="review-card">
+            <div class="rev-stars">★★★★★</div>
+            <p>"Сдавала квартиру, заказала генеральную уборку. Приехали вовремя, всё блестело. Хозяин был в восторге!"</p>
+            <div class="reviewer"><div class="rev-ava">М</div><div><b>Марина К.</b><span>Авито</span></div></div>
+          </div>
+          <div class="review-card">
+            <div class="rev-stars">★★★★★</div>
+            <p>"Ковёр белый, два кота. После мойки как новый! Запаха нет вообще. Спасибо огромное!"</p>
+            <div class="reviewer"><div class="rev-ava">А</div><div><b>Александра В.</b><span>Профи.ру</span></div></div>
+          </div>
+          <div class="review-card">
+            <div class="rev-stars">★★★★★</div>
+            <p>"Сделали ламинацию кухонного стола. Теперь всё влагостойкое, пятна не остаются. Качество отличное!"</p>
+            <div class="reviewer"><div class="rev-ava">Д</div><div><b>Дмитрий Р.</b><span>Google</span></div></div>
+          </div>
+          <div class="review-card">
+            <div class="rev-stars">★★★★★</div>
+            <p>"Диван-угол химчистили — вывели пятна от кофе. Думал невозможно. Результат 100%!"</p>
+            <div class="reviewer"><div class="rev-ava">С</div><div><b>Сергей Н.</b><span>2ГИС</span></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: CONTACT -->
+    <section class="page" data-index="5">
+      <div class="page-inner contact-inner">
+        <div class="contact-left">
+          <div class="section-label reveal-3d">Связаться с нами</div>
+          <h2 class="section-title reveal-3d">Закажите<br><span class="gradient-text">уборку сейчас</span></h2>
+          <div class="contact-items reveal-3d">
+            <a href="tel:+78001234567" class="c-item">📞 8 (800) 123-45-67</a>
+            <a href="https://wa.me/78001234567" class="c-item">💬 WhatsApp</a>
+            <div class="c-item">📍 Выезд по всему КМВ</div>
+          </div>
+          <div class="guarantees reveal-3d">
+            <div class="g-row">✅ Оплата после работы</div>
+            <div class="g-row">✅ Гарантия 48 часов</div>
+            <div class="g-row">✅ Бесплатный выезд мастера</div>
+          </div>
+        </div>
+        <form class="contact-form reveal-3d" onsubmit="handleSubmit(event)">
+          <div class="fg"><label>Ваше имя</label><input type="text" placeholder="Иван Иванов" required></div>
+          <div class="fg"><label>Телефон</label><input type="tel" placeholder="+7 (___) ___-__-__" required></div>
+          <div class="fg"><label>Услуга</label>
+            <select>
+              <option>Химчистка мебели</option>
+              <option>Мойка ковров</option>
+              <option>Ламинация мебели</option>
+              <option>Клининг (уборка)</option>
+              <option>Несколько услуг</option>
+            </select>
+          </div>
+          <div class="fg"><label>Комментарий</label><textarea placeholder="Опишите объём работ..."></textarea></div>
+          <button type="submit" class="btn-primary full-w">Отправить заявку</button>
+          <p class="form-note">Нажимая кнопку, вы соглашаетесь с обработкой персональных данных</p>
+        </form>
+      </div>
+      <footer class="site-footer">
+        <div class="logo">Чисто<span>Про</span></div>
+        <p>© 2025 ЧистоПро. Профессиональная химчистка и клининг КМВ</p>
+      </footer>
+    </section>
+
+  </div><!-- .stage -->
+</div><!-- #ui-layer -->
+
+<div id="toast" class="toast">✅ Заявка отправлена! Перезвоним в течение 15 минут.</div>
+
+<script src="app.js"></script>
+</body>
+</html>
